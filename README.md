@@ -20,5 +20,5 @@ docker exec -it nextjsui /bin/sh
 ## nextjs + nginx
 
 ```bash
-docker-compose up
+docker-compose up -d
 ```

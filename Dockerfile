@@ -18,13 +18,14 @@ RUN npm install --production
 COPY ./ ./
 
 # Build app
-RUN npm run build
+RUN npm run build && npx next telemetry disable
 
 # Expose the listening port
 EXPOSE 3000
 
 # Run container as non-root (unprivileged) user
 # The node user is provided in the Node.js Alpine base image
+RUN chown -R node /usr/app/.next/cache
 USER node
 
 # Run npm start script with PM2 when container starts
